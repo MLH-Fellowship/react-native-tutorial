@@ -1,24 +1,50 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {Text, View, StyleSheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 // You can import Ionicons from @expo/vector-icons/Ionicons if you use Expo or
 // react-native-vector-icons/Ionicons otherwise.
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-function HomeScreen() {
+const styles = StyleSheet.create({
+  feed: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  profile: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  notifications: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+function Feed() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
+    <View style={styles.feed}>
+      <Text>Feed!</Text>
     </View>
   );
 }
 
-function SettingsScreen() {
+function Profile() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
+    <View style={styles.profile}>
+      <Text>Profile!</Text>
+    </View>
+  );
+}
+
+function Notifications() {
+  return (
+    <View style={styles.notifications}>
+      <Text>Notifications!</Text>
     </View>
   );
 }
@@ -29,34 +55,46 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            switch(route.name) {
-              case 'Home':
-                iconName = focused
-                ? 'information-outline'
-                : 'information-circle-outline';
-                break;
-              case 'Settings':
-                iconName = focused ? 'list-outline' : 'list-circle-outline';
-                break;
-              // add more cases here
-              default:
-            }
-
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-        })}
         tabBarOptions={{
-          activeTintColor: 'tomato',
+          initialRouteName: 'Feed',
+          activeTintColor: '#e91e63',
           inactiveTintColor: 'gray',
-        }}
-      >
-        <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarBadge: 3 }} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+        }}>
+        <Tab.Screen
+          name="Feed"
+          component={Feed}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({color, size}) => (
+              <MaterialCommunityIcons name="home" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Notifications"
+          component={Notifications}
+          options={{
+            tabBarLabel: 'Updates',
+            tabBarIcon: ({color, size}) => (
+              <MaterialCommunityIcons name="bell" color={color} size={size} />
+            ),
+            tabBarBadge: 3,
+          }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({color, size}) => (
+              <MaterialCommunityIcons
+                name="account"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
