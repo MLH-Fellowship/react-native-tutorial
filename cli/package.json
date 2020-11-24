@@ -1,0 +1,17 @@
+{
+  "name": "react-native-tutorial-cli",
+  "version": "1.0.0",
+  "description": "The React Native Tutorial cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^6.2.0",
+    "inquirer": "^7.3.3",
+    "simple-git": "^2.23.0"
+  }
+}
