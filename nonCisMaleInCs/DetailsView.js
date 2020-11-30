@@ -66,19 +66,24 @@ const styles = StyleSheet.create({
   body: {
     flexDirection: 'column',
     marginBottom: 10,
+    backgroundColor: Colors.white,
+    paddingBottom: 40,    
+    paddingTop: 20,    
   },
   titleStyle: {
     fontSize: 40,
     fontWeight: '600',
     color: Colors.black,
     alignSelf: 'center',
+    fontFamily: 'roboto'
   },
   sectionTitle: {
     fontSize: 22,
     fontWeight: '600',
     color: Colors.black,
-    marginTop: 32,
+    marginTop: 22,
     paddingHorizontal: 24,
+    fontFamily: 'sans-serif'
   },
   appButtonContainer: {
     flexDirection: 'row',
