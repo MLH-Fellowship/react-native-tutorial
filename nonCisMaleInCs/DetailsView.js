@@ -56,10 +56,12 @@ const styles = StyleSheet.create({
   },
   headerImageContainer: {
     alignItems: 'center',
+    marginVertical: 30
   },
   imageStyle: {
     backgroundColor: Colors.lighter,
-    height: 200,
+    height: 220,
+    width: 190
   },
   body: {
     flexDirection: 'column',
@@ -69,7 +71,6 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: '600',
     color: Colors.black,
-    marginTop: 32,
     alignSelf: 'center',
   },
   sectionTitle: {
