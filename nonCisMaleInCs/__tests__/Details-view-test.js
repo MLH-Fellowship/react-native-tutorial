@@ -1,15 +1,15 @@
 import React from 'react';
-import DetailsView from '../DetailsView';
+import DetailsView from '../src/screens/DetailsView';
 import * as rtl from '@testing-library/react-native';
-import { toBeEmpty, toHaveTextContent } from '@testing-library/jest-native';
-expect.extend({ toBeEmpty, toHaveTextContent });
+import '@testing-library/jest-native';
+expect.extend({});
 import renderer from 'react-test-renderer';
 
 afterEach(() => {
   renderer.cleanup;
 });
 
-describe('Details View Component', () => {
+describe('DetailsView Component', () => {
   test('UI renders correctly', () => {
     const wrapper = renderer.create(<DetailsView />);
   });  
@@ -25,20 +25,32 @@ describe('Details View Component', () => {
     const { queryByTestId } = rtl.render(<DetailsView />); 
     expect(queryByTestId('scroll')).toBeDefined();   
     expect(queryByTestId('scroll')).not.toBeEmpty();
-    // expect(queryByTestId('scroll')).toHaveTextContent(/introduction/i);
   });
 
   test('has user image', () => {
     const { queryByTestId } = rtl.render(<DetailsView />); 
     expect(queryByTestId('image')).toBeDefined();   
-    // expect(queryByTestId('image')).not.toBeEmpty();
   });
 
-  test('John Doe is visible', () => {
+  test('displays name of user, John Doe', () => {
     const { queryByTestId } = rtl.render(<DetailsView />); 
     expect(queryByTestId('title')).toBeDefined();   
     expect(queryByTestId('title')).not.toBeEmpty();   
     expect(queryByTestId('title')).toHaveTextContent(/John Doe/i);
   });
+
+  test('displays details about user', () => {
+    const { getByText } = rtl.render(<DetailsView />); 
+    expect(getByText('Introduction')).toBeDefined();
+    expect(getByText('Contribution')).toBeDefined();
+    expect(getByText('Domain ( Tag form )')).toBeDefined();
+  });
+
+  test('has edit button', () => {
+    const { getByText, queryByTestId } = rtl.render(<DetailsView />); 
+    expect(queryByTestId('button')).toBeDefined();   
+    expect(queryByTestId('button')).not.toBeEmpty();   
+    expect(getByText('EDIT BUTTON')).toBeDefined();  
+  })
 });
 

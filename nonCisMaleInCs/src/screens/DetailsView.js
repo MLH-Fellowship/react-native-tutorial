@@ -31,7 +31,7 @@ const DetailsView = () => {
           <Text style={styles.sectionTitle}>Contribution</Text>
           <Text style={styles.sectionTitle}>Domain ( Tag form )</Text>
         </View>
-        <TouchableOpacity onPress={onPressed} style={styles.appButtonContainer}>
+        <TouchableOpacity testID="button" onPress={onPressed} style={styles.appButtonContainer}>
           <Image source={editIcon} style={styles.appButtonIcon} />
           <Text style={styles.appButtonText}>EDIT BUTTON</Text>
         </TouchableOpacity>
