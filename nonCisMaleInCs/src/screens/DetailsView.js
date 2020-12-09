@@ -21,12 +21,12 @@ const DetailsView = () => {
   return (
     <>
       <Text testID="home" style={styles.menuText}>{'< Home'}</Text>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView testID="scroll" style={styles.scrollView}>
         <View style={styles.headerImageContainer}>
-          <Image style={styles.imageStyle} source={nophoto} />
+          <Image testID="image" style={styles.imageStyle} source={nophoto} />
         </View>
         <View style={styles.body}>
-          <Text testID="visible" style={styles.titleStyle}>JOHN DOE</Text>
+          <Text testID="title" style={styles.titleStyle}>JOHN DOE</Text>
           <Text style={styles.sectionTitle}>Introduction</Text>
           <Text style={styles.sectionTitle}>Contribution</Text>
           <Text style={styles.sectionTitle}>Domain ( Tag form )</Text>
