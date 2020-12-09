@@ -20,13 +20,13 @@ const onPressed = () => {
 const DetailsView = () => {
   return (
     <>
-      <Text style={styles.menuText}>{'< Home'}</Text>
+      <Text testID="home" style={styles.menuText}>{'< Home'}</Text>
       <ScrollView style={styles.scrollView}>
         <View style={styles.headerImageContainer}>
           <Image style={styles.imageStyle} source={nophoto} />
         </View>
         <View style={styles.body}>
-          <Text style={styles.titleStyle}>JOHN DOE</Text>
+          <Text testID="visible" style={styles.titleStyle}>JOHN DOE</Text>
           <Text style={styles.sectionTitle}>Introduction</Text>
           <Text style={styles.sectionTitle}>Contribution</Text>
           <Text style={styles.sectionTitle}>Domain ( Tag form )</Text>

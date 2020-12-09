@@ -1,23 +1,25 @@
-
-import 'react-native';
+import {Text} from 'react-native';
 import React from 'react';
 import DetailsView from '../DetailsView';
-import renderer from 'react-test-renderer';
 import * as rtl from '@testing-library/react-native';
 
+// import '@testing-library/jest-native/extend-expect';
+import { toBeEmpty, toHaveTextContent } from '@testing-library/jest-native';
+expect.extend({ toBeEmpty, toHaveTextContent });
+import renderer from 'react-test-renderer';
+
 afterEach(() => {
-    renderer.cleanup;
+  renderer.cleanup;
 });
 
-let wrapper;
-
-beforeEach(() => {
-    wrapper = renderer.create(<DetailsView />)
-})
-
 describe('Details View Component', () => {
-    test.only('UI renders correctly', () => {
-        
-    });
+  test('UI renders correctly', () => {
+    const wrapper = renderer.create(<DetailsView />);
+  });  
+
+  test('has a back button', () => {
+    const { queryByTestId } = rtl.render(<DetailsView />);    
+    expect(queryByTestId('home')).toHaveTextContent(/< home/i);
+  })
 });
 
