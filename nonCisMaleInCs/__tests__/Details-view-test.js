@@ -21,5 +21,10 @@ describe('Details View Component', () => {
     const { queryByTestId } = rtl.render(<DetailsView />);    
     expect(queryByTestId('home')).toHaveTextContent(/< home/i);
   })
+
+  test('John Doe is visible', () => {
+    const { queryByTestId } = rtl.render(<DetailsView />);    
+    expect(queryByTestId('visible')).toHaveTextContent(/John Doe/i);
+  });
 });
 
