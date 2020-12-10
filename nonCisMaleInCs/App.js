@@ -6,6 +6,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // You can import Ionicons from @expo/vector-icons/Ionicons if you use Expo or
 // react-native-vector-icons/Ionicons otherwise.
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Main from './src/screens/Main';
+import DetailsView from './DetailsView';
 
 const styles = StyleSheet.create({
   feed: {
@@ -62,7 +64,7 @@ export default function App() {
         }}>
         <Tab.Screen
           name="Feed"
-          component={Feed}
+          component={Main}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({color, size}) => (
@@ -72,7 +74,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Notifications"
-          component={Notifications}
+          component={DetailsView}
           options={{
             tabBarLabel: 'Updates',
             tabBarIcon: ({color, size}) => (
