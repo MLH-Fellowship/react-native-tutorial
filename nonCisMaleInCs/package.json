@@ -29,7 +29,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "node run-script.js"
+      "pre-commit": "node run-script.js && npm test"
     }
   }
 }
