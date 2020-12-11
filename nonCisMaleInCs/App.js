@@ -6,47 +6,21 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // You can import Ionicons from @expo/vector-icons/Ionicons if you use Expo or
 // react-native-vector-icons/Ionicons otherwise.
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Main from './src/screens/Main';
-import DetailsView from './DetailsView';
+import HomeView from './src/screens/HomeView';
+import DetailsView from './src/screens/DetailsView';
 
 const styles = StyleSheet.create({
-  feed: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   profile: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  notifications: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
 });
 
-function Feed() {
-  return (
-    <View style={styles.feed}>
-      <Text>Feed!</Text>
-    </View>
-  );
-}
-
 function Profile() {
   return (
     <View style={styles.profile}>
       <Text>Profile!</Text>
-    </View>
-  );
-}
-
-function Notifications() {
-  return (
-    <View style={styles.notifications}>
-      <Text>Notifications!</Text>
     </View>
   );
 }
@@ -64,7 +38,7 @@ export default function App() {
         }}>
         <Tab.Screen
           name="Feed"
-          component={Main}
+          component={HomeView}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({color, size}) => (
@@ -73,10 +47,10 @@ export default function App() {
           }}
         />
         <Tab.Screen
-          name="Notifications"
+          name="Details"
           component={DetailsView}
           options={{
-            tabBarLabel: 'Updates',
+            tabBarLabel: 'Details',
             tabBarIcon: ({color, size}) => (
               <MaterialCommunityIcons name="bell" color={color} size={size} />
             ),
