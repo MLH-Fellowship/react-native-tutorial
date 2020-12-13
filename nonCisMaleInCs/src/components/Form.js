@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {launchImageLibrary} from 'react-native-image-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   Text,
   StyleSheet,
@@ -12,7 +13,11 @@ import {
 } from 'react-native';
 
 const Form = () => {
-  const [imageSource, setImageSource] = useState(null);
+  const [name, setName] = useState('');
+  const [introduction, setIntroduction] = useState('');
+  const [contribution, setContribution] = useState('');
+  const [domain, setDomain] = useState('');
+  const [imageSource, setImageSource] = useState('');
 
   function selectImage() {
     const options = {
@@ -27,36 +32,65 @@ const Form = () => {
 
     launchImageLibrary(options, (response) => {
       if (response.didCancel) {
-        console.log('User cancelled photo picker');
         Alert.alert('You did not select any image');
       } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
+        Alert.alert('ImagePicker Error: ' + response.error);
       } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
+        Alert.alert('User tapped custom button: ' + response.customButton);
       } else {
-        let source = {uri: response.uri};
-        console.log(source);
-
-        // ADD THIS
+        const source = {uri: response.uri};
         setImageSource(source.uri);
       }
     });
   }
+
+  const handleSubmit = async () => {
+    const res = await AsyncStorage.getItem('data');
+    let dataArr = [];
+    if (JSON.parse(res)) {
+      dataArr = JSON.parse(res);
+    }
+    const obj = {
+      name,
+      introduction,
+      contribution,
+      domain,
+      image: imageSource,
+    };
+    dataArr.push(obj);
+    const jsonValue = JSON.stringify(dataArr);
+    await AsyncStorage.setItem('data', jsonValue);
+    Alert.alert('Profile Added!');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.heading}> Add Profile </Text>
       <View>
         <Text style={styles.formLabel}> Name </Text>
-        <TextInput placeholder="Enter Name" style={styles.inputStyle} />
+        <TextInput
+          placeholder="Enter Name"
+          style={styles.inputStyle}
+          onChangeText={(text) => setName(text)}
+        />
         <Text style={styles.formLabel}> Introduction </Text>
-        <TextInput placeholder="Enter Introduction" style={styles.inputStyle} />
+        <TextInput
+          placeholder="Enter Introduction"
+          style={styles.inputStyle}
+          onChangeText={(text) => setIntroduction(text)}
+        />
         <Text style={styles.formLabel}> Contribution </Text>
         <TextInput
           placeholder="Enter Contributions"
           style={styles.inputStyle}
+          onChangeText={(text) => setContribution(text)}
         />
         <Text style={styles.formLabel}> Domains </Text>
-        <TextInput placeholder="Enter Domains" style={styles.inputStyle} />
+        <TextInput
+          placeholder="Enter Domains"
+          style={styles.inputStyle}
+          onChangeText={(text) => setDomain(text)}
+        />
         <Text style={styles.formLabel}> Image </Text>
         <TouchableOpacity>
           <Text onPress={selectImage} style={styles.pickImage}>
@@ -67,7 +101,7 @@ const Form = () => {
           title="Submit"
           raised
           style={styles.button}
-          onPress={() => Alert.alert('New Profile Added')}
+          onPress={handleSubmit}
         />
       </View>
     </SafeAreaView>
@@ -76,6 +110,7 @@ const Form = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 30,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
