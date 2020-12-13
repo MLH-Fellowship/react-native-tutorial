@@ -8,6 +8,8 @@ target 'nonCisMaleInCs' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
   target 'nonCisMaleInCsTests' do
     inherit! :complete
     # Pods for testing
