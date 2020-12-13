@@ -9,10 +9,12 @@
 import React from 'react';
 
 import Form from '../nonCisMaleInCs/src/components/Form';
+import Header from '../nonCisMaleInCs/src/components/Header';
 
 const App: () => React$Node = () => {
   return (
     <>
+      <Header />
       <Form />
     </>
   );

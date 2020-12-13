@@ -12,21 +12,26 @@ import {
 const Form = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.formLabel}> Add Women In Tech </Text>
+      <Text style={styles.heading}> Add Profile </Text>
       <View>
+        <Text style={styles.formLabel}> Name </Text>
         <TextInput placeholder="Enter Name" style={styles.inputStyle} />
+        <Text style={styles.formLabel}> Introduction </Text>
         <TextInput placeholder="Enter Introduction" style={styles.inputStyle} />
+        <Text style={styles.formLabel}> Contribution </Text>
         <TextInput
           placeholder="Enter Contributions"
           style={styles.inputStyle}
         />
+        <Text style={styles.formLabel}> Domains </Text>
         <TextInput placeholder="Enter Domains" style={styles.inputStyle} />
+        <Text style={styles.formLabel}> Image </Text>
         <TextInput placeholder="Select Image" style={styles.selectimgStyle} />
         <Button
           title="Submit"
           raised
           style={styles.button}
-          onPress={() => Alert.alert('Simple Button pressed')}
+          onPress={() => Alert.alert('New Profile Added')}
         />
       </View>
     </SafeAreaView>
@@ -40,21 +45,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  formLabel: {
+  heading: {
     fontSize: 30,
     color: '#3498DB',
     fontWeight: 'bold',
   },
-  inputStyle: {
+  formLabel: {
+    fontSize: 15,
+    marginBottom: 0,
     marginTop: 20,
+  },
+  inputStyle: {
+    marginTop: 5,
     width: 300,
-    paddingHorizontal: 25,
+    paddingHorizontal: 15,
     borderRadius: 5,
     backgroundColor: '#F2F3F4',
     lineHeight: 26,
   },
   selectimgStyle: {
-    marginTop: 20,
+    marginTop: 5,
     width: 300,
     paddingHorizontal: 25,
     marginBottom: 30,
