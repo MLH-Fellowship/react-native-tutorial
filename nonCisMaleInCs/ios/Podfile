@@ -8,6 +8,10 @@ target 'nonCisMaleInCs' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-async-storage/async-storage'
+
   target 'nonCisMaleInCsTests' do
     inherit! :complete
     # Pods for testing
