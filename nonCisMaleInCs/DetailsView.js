@@ -56,26 +56,26 @@ const styles = StyleSheet.create({
   },
   headerImageContainer: {
     alignItems: 'center',
-    marginVertical: 30
+    marginVertical: 30,
   },
   imageStyle: {
     backgroundColor: Colors.lighter,
     height: 220,
-    width: 190
+    width: 190,
   },
   body: {
     flexDirection: 'column',
     marginBottom: 10,
     backgroundColor: Colors.white,
-    paddingBottom: 40,    
-    paddingTop: 20,    
+    paddingBottom: 40,
+    paddingTop: 20,
   },
   titleStyle: {
     fontSize: 40,
     fontWeight: '600',
     color: Colors.black,
     alignSelf: 'center',
-    fontFamily: 'roboto'
+    fontFamily: 'roboto',
   },
   sectionTitle: {
     fontSize: 22,
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     color: Colors.black,
     marginTop: 22,
     paddingHorizontal: 24,
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
   },
   appButtonContainer: {
     flexDirection: 'row',
