@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import {ScrollView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -26,11 +25,11 @@ const App: () => React$Node = () => {
         <Tab.Navigator
           tabBarOptions={{
             initialRouteName: 'Feed',
-            activeTintColor: '#e91e63',
+            activeTintColor: '#3498DB',
             inactiveTintColor: 'gray',
           }}>
           <Tab.Screen
-            name="Feed"
+            name="Home"
             component={Home}
             options={{
               tabBarLabel: 'Home',

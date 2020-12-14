@@ -10,6 +10,7 @@ import {
   Alert,
   SafeAreaView,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 
 const Form = () => {
@@ -55,7 +56,7 @@ const Form = () => {
       introduction,
       contribution,
       domain,
-      image: imageSource,
+      imageSource,
     };
     dataArr.push(obj);
     const jsonValue = JSON.stringify(dataArr);
@@ -67,42 +68,44 @@ const Form = () => {
     <SafeAreaView style={styles.container}>
       <Text style={styles.heading}> Add Profile </Text>
       <View>
-        <Text style={styles.formLabel}> Name </Text>
-        <TextInput
-          placeholder="Enter Name"
-          style={styles.inputStyle}
-          onChangeText={(text) => setName(text)}
-        />
-        <Text style={styles.formLabel}> Introduction </Text>
-        <TextInput
-          placeholder="Enter Introduction"
-          style={styles.inputStyle}
-          onChangeText={(text) => setIntroduction(text)}
-        />
-        <Text style={styles.formLabel}> Contribution </Text>
-        <TextInput
-          placeholder="Enter Contributions"
-          style={styles.inputStyle}
-          onChangeText={(text) => setContribution(text)}
-        />
-        <Text style={styles.formLabel}> Domains </Text>
-        <TextInput
-          placeholder="Enter Domains"
-          style={styles.inputStyle}
-          onChangeText={(text) => setDomain(text)}
-        />
-        <Text style={styles.formLabel}> Image </Text>
-        <TouchableOpacity>
-          <Text onPress={selectImage} style={styles.pickImage}>
-            Pick an Image
-          </Text>
-        </TouchableOpacity>
-        <Button
-          title="Submit"
-          raised
-          style={styles.button}
-          onPress={handleSubmit}
-        />
+        <ScrollView>
+          <Text style={styles.formLabel}> Name </Text>
+          <TextInput
+            placeholder="Enter Name"
+            style={styles.inputStyle}
+            onChangeText={(text) => setName(text)}
+          />
+          <Text style={styles.formLabel}> Introduction </Text>
+          <TextInput
+            placeholder="Enter Introduction"
+            style={styles.inputStyle}
+            onChangeText={(text) => setIntroduction(text)}
+          />
+          <Text style={styles.formLabel}> Contribution </Text>
+          <TextInput
+            placeholder="Enter Contributions"
+            style={styles.inputStyle}
+            onChangeText={(text) => setContribution(text)}
+          />
+          <Text style={styles.formLabel}> Domains </Text>
+          <TextInput
+            placeholder="Enter Domains"
+            style={styles.inputStyle}
+            onChangeText={(text) => setDomain(text)}
+          />
+          <Text style={styles.formLabel}> Image </Text>
+          <TouchableOpacity>
+            <Text onPress={selectImage} style={styles.pickImage}>
+              Pick an Image
+            </Text>
+          </TouchableOpacity>
+          <Button
+            title="Submit"
+            raised
+            style={styles.button}
+            onPress={handleSubmit}
+          />
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -110,7 +113,6 @@ const Form = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 30,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
@@ -118,6 +120,7 @@ const styles = StyleSheet.create({
 
   heading: {
     fontSize: 30,
+    marginTop: 70,
     color: '#3498DB',
     fontWeight: 'bold',
   },
