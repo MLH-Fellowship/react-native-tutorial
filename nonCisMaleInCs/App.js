@@ -14,6 +14,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Form from '../nonCisMaleInCs/src/components/Form';
 import Header from '../nonCisMaleInCs/src/components/Header';
 import Home from '../nonCisMaleInCs/src/components/Home';
+import Dashboard from './src/components/Dashboard';
 
 const Tab = createBottomTabNavigator();
 
@@ -54,7 +55,7 @@ const App: () => React$Node = () => {
           />
           <Tab.Screen
             name="Dashboard"
-            component={Home}
+            component={Dashboard}
             options={{
               tabBarLabel: 'Dashboard',
               tabBarIcon: ({color, size}) => (

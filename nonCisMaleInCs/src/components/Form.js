@@ -13,7 +13,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-const Form = () => {
+const Form = ({navigation}) => {
   const [name, setName] = useState('');
   const [introduction, setIntroduction] = useState('');
   const [contribution, setContribution] = useState('');
@@ -61,7 +61,7 @@ const Form = () => {
     dataArr.push(obj);
     const jsonValue = JSON.stringify(dataArr);
     await AsyncStorage.setItem('data', jsonValue);
-    Alert.alert('Profile Added!');
+    navigation.navigate('Dashboard');
   };
 
   return (
