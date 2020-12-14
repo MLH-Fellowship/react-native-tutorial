@@ -8,8 +8,8 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import editIcon from './assets/images/edit.png';
-import nophoto from './assets/images/nophoto.png';
+import editIcon from '../images/edit.png';
+import nophoto from '../images/nophoto.png';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -17,7 +17,7 @@ const onPressed = () => {
   Alert.alert('Edit button got pressed!');
 };
 
-const DetailsView = () => {
+const Details = () => {
   return (
     <>
       <Text style={styles.menuText}>{'< Home'}</Text>
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DetailsView;
+export default Details;
