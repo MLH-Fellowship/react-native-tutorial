@@ -4,7 +4,7 @@ import {View, FlatList, SafeAreaView, StyleSheet} from 'react-native';
 
 import Card from '../components/Card';
 
-function Dashboard() {
+const Dashboard = () => {
   const [profiles, setProfiles] = useState([]);
 
   const getLocalData = async () => {
