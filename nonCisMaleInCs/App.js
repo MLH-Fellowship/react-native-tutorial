@@ -8,22 +8,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeView from './src/screens/HomeView';
 import DetailsView from './src/screens/DetailsView';
-
-const styles = StyleSheet.create({
-  profile: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
-
-function Profile() {
-  return (
-    <View style={styles.profile}>
-      <Text>Profile!</Text>
-    </View>
-  );
-}
+import ExampleView from './src/screens/ExampleView';
 
 const Tab = createBottomTabNavigator();
 
@@ -58,10 +43,10 @@ export default function App() {
           }}
         />
         <Tab.Screen
-          name="Profile"
-          component={Profile}
+          name="Example"
+          component={ExampleView}
           options={{
-            tabBarLabel: 'Profile',
+            tabBarLabel: 'Example',
             tabBarIcon: ({color, size}) => (
               <MaterialCommunityIcons
                 name="account"

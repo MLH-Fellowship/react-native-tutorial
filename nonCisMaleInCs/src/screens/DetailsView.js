@@ -20,18 +20,25 @@ const onPressed = () => {
 const DetailsView = () => {
   return (
     <>
-      <Text testID="home" style={styles.menuText}>{'< Home'}</Text>
+      <Text testID="home" style={styles.menuText}>
+        {'< Home'}
+      </Text>
       <ScrollView testID="scroll" style={styles.scrollView}>
         <View style={styles.headerImageContainer}>
           <Image testID="image" style={styles.imageStyle} source={nophoto} />
         </View>
         <View style={styles.body}>
-          <Text testID="title" style={styles.titleStyle}>JOHN DOE</Text>
+          <Text testID="title" style={styles.titleStyle}>
+            JOHN DOE
+          </Text>
           <Text style={styles.sectionTitle}>Introduction</Text>
           <Text style={styles.sectionTitle}>Contribution</Text>
           <Text style={styles.sectionTitle}>Domain ( Tag form )</Text>
         </View>
-        <TouchableOpacity testID="button" onPress={onPressed} style={styles.appButtonContainer}>
+        <TouchableOpacity
+          testID="button"
+          onPress={onPressed}
+          style={styles.appButtonContainer}>
           <Image source={editIcon} style={styles.appButtonIcon} />
           <Text style={styles.appButtonText}>EDIT BUTTON</Text>
         </TouchableOpacity>

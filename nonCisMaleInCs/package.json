@@ -6,7 +6,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest --watch",
+    "test": "jest",
+    "watch-test": "jest --watch",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -20,7 +21,8 @@
     "react-native-reanimated": "^1.13.1",
     "react-native-safe-area-context": "^3.1.8",
     "react-native-screens": "^2.13.0",
-    "react-native-vector-icons": "^7.1.0"
+    "react-native-vector-icons": "^7.1.0",
+    "rn-tutorial-cli": "file:../cli"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -37,11 +39,14 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFilesAfterEnv": ["@testing-library/jest-native/extend-expect"]
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "node run-script.js && npm test"
+      "pre-commit": "npm test",
+      "post-commit": "rn-tutorial-cli next"
     }
   }
 }
