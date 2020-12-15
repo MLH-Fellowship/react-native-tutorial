@@ -36,10 +36,5 @@
   },
   "jest": {
     "preset": "react-native"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "node run-script.js && npm test"
-    }
   }
 }
