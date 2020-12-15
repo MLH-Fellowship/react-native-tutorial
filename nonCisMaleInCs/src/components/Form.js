@@ -19,8 +19,8 @@ const Form = ({navigation}) => {
   const [contribution, setContribution] = useState('');
   const [domain, setDomain] = useState('');
   const [imageSource, setImageSource] = useState('');
-
-  function selectImage() {
+  
+  const selectImage = () => {
     const options = {
       title: 'You can choose one image',
       mediaType: 'photo',
@@ -110,6 +110,7 @@ const Form = ({navigation}) => {
     </SafeAreaView>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -117,7 +118,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   heading: {
     fontSize: 30,
     marginTop: 70,
