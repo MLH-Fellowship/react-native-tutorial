@@ -1,11 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
-export default function Card({item}) {
+const Card = ({item}) => {
   const {name, domain, imageSource} = item.item;
+
   return (
     <View style={styles.card}>
-      <View style={styles.imageContainer}>
+      <View style={styles.ImageContainer}>
         <Image
           style={styles.imageStyle}
           source={{
@@ -17,7 +18,7 @@ export default function Card({item}) {
       <Text style={styles.subtitle}>{domain}</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   card: {
@@ -43,8 +44,10 @@ const styles = StyleSheet.create({
     height: 180,
     width: 180,
   },
-  imageContainer: {
+  ImageContainer: {
     justifyContent: 'center',
     alignItems: 'center',
   },
 });
+
+export default Card;
