@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 
-export default function header() {
+const Header = () => {
   return (
     <View style={styles.header}>
       <Text style={styles.title}>React Native Tutorial</Text>
@@ -21,3 +21,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+export default Header;
