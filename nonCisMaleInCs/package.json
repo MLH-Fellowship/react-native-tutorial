@@ -6,7 +6,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest --watch",
+    "test": "jest",
+    "watch-test": "jest --watch",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -41,7 +42,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "node run-script.js && npm test"
+      "pre-commit": "npm test",
+      "post-commit": "node ../cli/index.js"
     }
   }
 }
