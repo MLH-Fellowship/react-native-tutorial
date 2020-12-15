@@ -5,7 +5,7 @@ export default function Card({item}) {
   const {name, domain, imageSource} = item.item;
   return (
     <View style={styles.card}>
-      <View style={styles.ImageContainer}>
+      <View style={styles.imageContainer}>
         <Image
           style={styles.imageStyle}
           source={{
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     height: 180,
     width: 180,
   },
-  ImageContainer: {
+  imageContainer: {
     justifyContent: 'center',
     alignItems: 'center',
   },
