@@ -35,7 +35,7 @@ const dummy_profile_data = [
   },
 ];
 
-function Home() {
+const Home = () => {
   const [profiles, setProfiles] = useState(dummy_profile_data);
 
   const getLocalData = async () => {
