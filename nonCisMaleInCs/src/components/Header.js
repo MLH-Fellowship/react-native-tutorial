@@ -4,7 +4,7 @@ import {StyleSheet, View, Text} from 'react-native';
 const Header = () => {
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>React Native Tutorial</Text>
+      <Text style={styles.title}>Non-Cis-Males in CS</Text>
     </View>
   );
 }

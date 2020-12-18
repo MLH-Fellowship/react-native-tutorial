@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import editIcon from '../images/edit.png'
+
+import editIcon from '../images/edit.png';
 import nophoto from '../images/nophoto.png';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
