@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {View, FlatList, SafeAreaView, StyleSheet} from 'react-native';
+import {View, FlatList, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 
 import Card from '../components/Card';
 
@@ -35,7 +35,7 @@ const dummy_profile_data = [
   },
 ];
 
-const Home = () => {
+const Home = ( {navigation} ) => {
   const [profiles, setProfiles] = useState(dummy_profile_data);
 
   const getLocalData = async () => {
@@ -50,6 +50,10 @@ const Home = () => {
     getLocalData();
   }, []);
 
+  onPress = () => {
+    navigation.navigate("DetailView");
+  }
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -57,7 +61,13 @@ const Home = () => {
           data={profiles}
           numColumns={2}
           keyExtractor={(item, index) => item.name}
-          renderItem={(item) => <Card item={item} />}
+          renderItem={(item) => {
+            return (
+              <TouchableOpacity onPress={this.onPress}>
+                <Card item={item} />
+              </TouchableOpacity>
+            );;
+          }}
         />
       </View>
     </SafeAreaView>

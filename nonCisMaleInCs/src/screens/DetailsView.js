@@ -8,8 +8,8 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import editIcon from '../../assets/images/edit.png';
-import nophoto from '../../assets/images/nophoto.png';
+import editIcon from '../images/edit.png'
+import nophoto from '../images/nophoto.png';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -75,7 +75,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: Colors.black,
     alignSelf: 'center',
-    fontFamily: 'roboto',
   },
   sectionTitle: {
     fontSize: 22,

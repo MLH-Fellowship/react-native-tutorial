@@ -15,6 +15,7 @@ import Form from '../nonCisMaleInCs/src/components/Form';
 import Header from '../nonCisMaleInCs/src/components/Header';
 import Home from '../nonCisMaleInCs/src/components/Home';
 import Dashboard from './src/components/Dashboard';
+import DetailView from './src/screens/DetailsView';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,6 +25,15 @@ const App: () => React$Node = () => {
       <Header />
       <NavigationContainer>
         <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarButton: [
+              "DetailView",
+            ].includes(route.name)
+              ? () => {
+                  return null;
+                }
+              : undefined,
+          })}
           tabBarOptions={{
             initialRouteName: 'Feed',
             activeTintColor: '#3498DB',
@@ -65,6 +75,13 @@ const App: () => React$Node = () => {
                   size={size}
                 />
               ),
+            }}
+          />
+          <Tab.Screen
+            name="DetailView"
+            component={DetailView}
+            options={{
+              headerShown: false
             }}
           />
         </Tab.Navigator>
