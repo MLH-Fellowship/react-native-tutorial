@@ -1,13 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {View, FlatList, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  FlatList,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 
 import Card from '../components/Card';
 
 const dummy_profile_data = [
   {
     name: 'Ada Lovelace',
-    introduction: 'first computer programmer',
+    introduction: 'First computer programmer',
     contribution:
       'Wrote an algorithm for a computing machine in the mid-1800s. She translated an article on an invention by Charles Babbage, and added her own comments.',
     domain: 'Programming',
@@ -35,7 +41,7 @@ const dummy_profile_data = [
   },
 ];
 
-const Home = ( {navigation} ) => {
+const Home = ({navigation}) => {
   const [profiles, setProfiles] = useState(dummy_profile_data);
 
   const getLocalData = async () => {
@@ -50,10 +56,6 @@ const Home = ( {navigation} ) => {
     getLocalData();
   }, []);
 
-  onPress = () => {
-    navigation.navigate("DetailView");
-  }
-
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -63,16 +65,22 @@ const Home = ( {navigation} ) => {
           keyExtractor={(item, index) => item.name}
           renderItem={(item) => {
             return (
-              <TouchableOpacity onPress={this.onPress}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('Details', {
+                    screen: 'Details',
+                    params: item,
+                  })
+                }>
                 <Card item={item} />
               </TouchableOpacity>
-            );;
+            );
           }}
         />
       </View>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
