@@ -1,108 +1,61 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Alert,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
-import editIcon from '../images/edit.png';
-import nophoto from '../images/nophoto.png';
+import {StyleSheet, View, Text, Image} from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+const Details = ({route, navigation}) => {
+  const params = route.params.params;
+  const {name, introduction, domain, contribution, imageSource} = params.item;
 
-const onPressed = () => {
-  Alert.alert('Edit button got pressed!');
-};
-
-const Details = () => {
   return (
     <>
-      <Text style={styles.menuText}>{'< Home'}</Text>
-      <ScrollView style={styles.scrollView}>
-        <View style={styles.headerImageContainer}>
-          <Image style={styles.imageStyle} source={nophoto} />
-        </View>
-        <View style={styles.body}>
-          <Text style={styles.titleStyle}>JOHN DOE</Text>
-          <Text style={styles.sectionTitle}>Introduction</Text>
-          <Text style={styles.sectionTitle}>Contribution</Text>
-          <Text style={styles.sectionTitle}>Domain ( Tag form )</Text>
-        </View>
-        <TouchableOpacity onPress={onPressed} style={styles.appButtonContainer}>
-          <Image source={editIcon} style={styles.appButtonIcon} />
-          <Text style={styles.appButtonText}>EDIT BUTTON</Text>
-        </TouchableOpacity>
-      </ScrollView>
+      <View style={styles.headerImageContainer}>
+        <Image style={styles.imageStyle} source={{uri: imageSource}} />
+      </View>
+      <View style={styles.body}>
+        <Text style={styles.titleStyle}>{name}</Text>
+        <Text style={styles.label}>Introduction:</Text>
+        <Text style={styles.sectionTitle}>{introduction}</Text>
+        <Text style={styles.label}>Contributions:</Text>
+        <Text style={styles.sectionTitle}>{contribution}</Text>
+        <Text style={styles.label}>Domain:</Text>
+        <Text style={styles.sectionTitle}>{domain}</Text>
+      </View>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  menuContainerStyle: {
-    backgroundColor: '#3D6DCC',
-    padding: 25,
-  },
-  menuText: {
-    color: Colors.white,
-    fontSize: 23,
-    backgroundColor: '#3D6DCC',
-    padding: 25,
-  },
   headerImageContainer: {
     alignItems: 'center',
-    marginVertical: 30,
+    marginVertical: 20,
   },
   imageStyle: {
-    backgroundColor: Colors.lighter,
-    height: 220,
-    width: 190,
+    height: 300,
+    width: 380,
   },
   body: {
     flexDirection: 'column',
     marginBottom: 10,
-    backgroundColor: Colors.white,
-    paddingBottom: 40,
-    paddingTop: 20,
+    paddingBottom: 30,
+    paddingTop: 10,
+    fontFamily: 'sans-serif',
   },
   titleStyle: {
-    fontSize: 40,
-    fontWeight: '600',
-    color: Colors.black,
+    fontSize: 30,
+    fontWeight: 'bold',
     alignSelf: 'center',
-    fontFamily: 'roboto',
   },
   sectionTitle: {
-    fontSize: 22,
+    fontSize: 16,
     fontWeight: '600',
-    color: Colors.black,
-    marginTop: 22,
+    marginTop: 5,
     paddingHorizontal: 24,
     fontFamily: 'sans-serif',
   },
-  appButtonContainer: {
-    flexDirection: 'row',
-    marginHorizontal: 25,
-    marginVertical: 30,
-    padding: 15,
-    backgroundColor: '#3D6DCC',
-  },
-  appButtonText: {
-    fontSize: 18,
-    height: 30,
-    color: Colors.white,
+  label: {
     fontWeight: 'bold',
-    marginLeft: 60,
-  },
-  appButtonIcon: {
-    height: 30,
-    width: 30,
-    marginRight: 24,
+    marginTop: 20,
+    paddingHorizontal: 24,
+    fontSize: 18,
   },
 });
 

@@ -1,11 +1,18 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
-const Card = ({item}) => {
+const Card = ({item, navigation}) => {
   const {name, domain, imageSource} = item.item;
 
   return (
-    <View style={styles.card}>
+    <View
+      style={styles.card}
+      onPress={() =>
+        navigation.navigate('Home', {
+          screen: 'Details',
+          params: {user: item.item},
+        })
+      }>
       <View style={styles.ImageContainer}>
         <Image
           style={styles.imageStyle}
